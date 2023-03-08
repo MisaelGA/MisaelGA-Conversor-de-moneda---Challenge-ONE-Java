@@ -5,15 +5,16 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class IngresoDeCantidad extends JFrame {
+public class IngresoDeTemperatura extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textDineroAConvertir;
+	private JTextField textTemperaturaAConvertir;
 
 	/**
 	 * Launch the application.
@@ -22,7 +23,7 @@ public class IngresoDeCantidad extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IngresoDeCantidad frame = new IngresoDeCantidad();
+					IngresoDeTemperatura frame = new IngresoDeTemperatura();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,30 +35,31 @@ public class IngresoDeCantidad extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IngresoDeCantidad() {
+	public IngresoDeTemperatura() {
 		setTitle("Input");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 460, 170);
+		setBounds(100, 100, 450, 182);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblINgresoDeCantidad = new JLabel("Ingresa la cantidad de dinero a convertir");
-		lblINgresoDeCantidad.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblINgresoDeCantidad.setBounds(10, 10, 426, 33);
-		contentPane.add(lblINgresoDeCantidad);
+		JLabel lblINgresoDeTemperatura = new JLabel("Ingresa la temperatura a convertir");
+		lblINgresoDeTemperatura.setHorizontalAlignment(SwingConstants.CENTER);
+		lblINgresoDeTemperatura.setBounds(13, 10, 410, 25);
+		lblINgresoDeTemperatura.setFont(new Font("Tahoma", Font.BOLD, 20));
+		contentPane.add(lblINgresoDeTemperatura);
 		
-		textDineroAConvertir = new JTextField();
-		textDineroAConvertir.setBounds(64, 45, 332, 33);
-		contentPane.add(textDineroAConvertir);
-		textDineroAConvertir.setColumns(10);
+		textTemperaturaAConvertir = new JTextField();
+		textTemperaturaAConvertir.setColumns(10);
+		textTemperaturaAConvertir.setBounds(43, 45, 332, 33);
+		contentPane.add(textTemperaturaAConvertir);
 		
-		JButton btnOkCantidad = new JButton("OK");
-		btnOkCantidad.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnOkCantidad.setBounds(94, 88, 92, 35);
-		contentPane.add(btnOkCantidad);
+		JButton btnOkTemperatura = new JButton("OK");
+		btnOkTemperatura.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnOkTemperatura.setBounds(82, 88, 92, 35);
+		contentPane.add(btnOkTemperatura);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -69,7 +71,8 @@ public class IngresoDeCantidad extends JFrame {
 			}
 		});
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnCancelar.setBounds(239, 88, 106, 35);
+		btnCancelar.setBounds(227, 88, 106, 35);
 		contentPane.add(btnCancelar);
 	}
+
 }

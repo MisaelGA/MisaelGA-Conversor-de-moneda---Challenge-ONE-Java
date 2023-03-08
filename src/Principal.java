@@ -10,6 +10,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Principal extends JFrame {
 
@@ -50,19 +52,40 @@ public class Principal extends JFrame {
 		lblPrincipal.setBounds(10, 0, 436, 36);
 		contentPane.add(lblPrincipal);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setForeground(Color.BLACK);
-		comboBox.setFont(new Font("Tahoma", Font.BOLD, 15));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Conversor de Moneda", "Conversor de Temperatura"}));
-		comboBox.setBounds(70, 46, 313, 42);
-		contentPane.add(comboBox);
+		JComboBox comboBoxMenu = new JComboBox();
+		comboBoxMenu.setForeground(Color.BLACK);
+		comboBoxMenu.setFont(new Font("Tahoma", Font.BOLD, 15));
+		comboBoxMenu.setModel(new DefaultComboBoxModel(new String[] {"Conversor de Moneda", "Conversor de Temperatura"}));
+		comboBoxMenu.setBounds(70, 46, 313, 42);
+		contentPane.add(comboBoxMenu);
 		
 		JButton btnPrincipalOk = new JButton("OK");
+		btnPrincipalOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (comboBoxMenu.getSelectedItem().equals("Conversor de Moneda")) {
+					dispose();
+					IngresoDeCantidad ingresoDeCantidad = new IngresoDeCantidad();
+					ingresoDeCantidad.setVisible(true);
+					
+				} else {
+					dispose();
+					IngresoDeTemperatura ingresoDeTemperatura = new IngresoDeTemperatura();
+					ingresoDeTemperatura.setVisible(true);
+				}
+				
+			}
+		});
 		btnPrincipalOk.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnPrincipalOk.setBounds(92, 106, 108, 40);
 		contentPane.add(btnPrincipalOk);
 		
 		JButton btnPrincipalCancelar = new JButton("Cancelar");
+		btnPrincipalCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnPrincipalCancelar.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnPrincipalCancelar.setBounds(233, 106, 118, 40);
 		contentPane.add(btnPrincipalCancelar);

@@ -4,15 +4,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Monedas extends JFrame {
+public class Temperaturas extends JFrame {
 
 	private JPanel contentPane;
 
@@ -23,7 +23,7 @@ public class Monedas extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Monedas frame = new Monedas();
+					Temperaturas frame = new Temperaturas();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,10 +35,9 @@ public class Monedas extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Monedas() {
-		setTitle("Monedas");
+	public Temperaturas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 200);
+		setBounds(100, 100, 450, 210);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -46,21 +45,21 @@ public class Monedas extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Elije la conversión que deseas hacer");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 10, 401, 36);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel.setBounds(10, 20, 401, 36);
 		contentPane.add(lblNewLabel);
 		
 		JComboBox comboBoxMonedas = new JComboBox();
+		comboBoxMonedas.setModel(new DefaultComboBoxModel(new String[] {"ºF a ºC", "K a ºC", "ºC a K", "ºF a K", "K a ºF"}));
 		comboBoxMonedas.setFont(new Font("Tahoma", Font.BOLD, 17));
-		comboBoxMonedas.setModel(new DefaultComboBoxModel(new String[] {"Peso a Dólar", "Peso a Euros", "Peso a Libras Esterlinas", "Peso a Yen Japonés", "Peso a Won sul-coreano", "Dólar a Peso", "Euros a Peso", "Libras Esterlinas a Peso", "Yen Japonés a Peso", "Won sul-coreano a Peso"}));
-		comboBoxMonedas.setBounds(45, 56, 332, 36);
+		comboBoxMonedas.setBounds(39, 66, 332, 36);
 		contentPane.add(comboBoxMonedas);
 		
-		JButton btnConvertirMoneda = new JButton("Convertir");
-		btnConvertirMoneda.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnConvertirMoneda.setBounds(45, 102, 111, 36);
-		contentPane.add(btnConvertirMoneda);
+		JButton btnConvertirTemperatuta = new JButton("Convertir");
+		btnConvertirTemperatuta.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnConvertirTemperatuta.setBounds(39, 112, 111, 36);
+		contentPane.add(btnConvertirTemperatuta);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -72,7 +71,7 @@ public class Monedas extends JFrame {
 			}
 		});
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnCancelar.setBounds(199, 102, 111, 36);
+		btnCancelar.setBounds(199, 112, 111, 36);
 		contentPane.add(btnCancelar);
 	}
 
