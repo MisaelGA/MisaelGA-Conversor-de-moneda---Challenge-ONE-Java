@@ -24,6 +24,7 @@ public class IngresoDeCantidad extends JFrame {
 				try {
 					IngresoDeCantidad frame = new IngresoDeCantidad();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -64,6 +65,7 @@ public class IngresoDeCantidad extends JFrame {
 				Cantidad = lblEntradaAConvertir.getText();
 				
 				Monedas monedas = new Monedas();
+				monedas.setLocationRelativeTo(null);
 				monedas.setVisible(true);
 				dispose();
 				

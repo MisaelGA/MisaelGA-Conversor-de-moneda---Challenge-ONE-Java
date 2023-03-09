@@ -26,6 +26,7 @@ public class Principal extends JFrame {
 				try {
 					Principal frame = new Principal();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -66,11 +67,13 @@ public class Principal extends JFrame {
 				if (comboBoxMenu.getSelectedItem().equals("Conversor de Moneda")) {
 					dispose();
 					IngresoDeCantidad ingresoDeCantidad = new IngresoDeCantidad();
+					ingresoDeCantidad.setLocationRelativeTo(null);
 					ingresoDeCantidad.setVisible(true);
 					
 				} else {
 					dispose();
 					IngresoDeTemperatura ingresoDeTemperatura = new IngresoDeTemperatura();
+					ingresoDeTemperatura.setLocationRelativeTo(null);
 					ingresoDeTemperatura.setVisible(true);
 				}
 				

@@ -25,6 +25,7 @@ public class Temperaturas extends JFrame {
 				try {
 					Temperaturas frame = new Temperaturas();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

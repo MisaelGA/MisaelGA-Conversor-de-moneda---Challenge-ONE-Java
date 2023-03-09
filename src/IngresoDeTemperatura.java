@@ -25,6 +25,7 @@ public class IngresoDeTemperatura extends JFrame {
 				try {
 					IngresoDeTemperatura frame = new IngresoDeTemperatura();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -67,6 +68,7 @@ public class IngresoDeTemperatura extends JFrame {
 				
 				dispose();
 				Principal principal = new Principal();
+				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
 			}
 		});

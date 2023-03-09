@@ -23,6 +23,7 @@ public class Continuacion extends JFrame {
 				try {
 					Continuacion frame = new Continuacion();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,6 +45,14 @@ public class Continuacion extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnContinuacionSi = new JButton("SI");
+		btnContinuacionSi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Principal principal = new Principal();
+				principal.setLocationRelativeTo(null);
+				principal.setVisible(true);
+			}
+		});
 		btnContinuacionSi.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnContinuacionSi.setBounds(70, 69, 85, 21);
 		contentPane.add(btnContinuacionSi);
@@ -70,6 +79,7 @@ public class Continuacion extends JFrame {
 				
 				dispose();
 				Principal principal = new Principal();
+				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
 			}
 		});

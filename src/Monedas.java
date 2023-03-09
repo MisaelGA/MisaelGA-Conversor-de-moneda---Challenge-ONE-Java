@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JComboBox;
@@ -26,6 +27,7 @@ public class Monedas extends JFrame {
 				try {
 					Monedas frame = new Monedas();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -62,9 +64,67 @@ public class Monedas extends JFrame {
 		btnConvertirMoneda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				double Peso = 1; 
+				double Dolar = 18.34; // 1
+				double Euro = 19.40;  // 2
+				double Libra = 21.85; // 3
+				double Yen = 0.13;    // 4
+				double Won = 0.014;   // 5
 				
+				IngresoDeCantidad ingresoDeCantidad = new IngresoDeCantidad();
+				Double cantidad = Double.parseDouble(ingresoDeCantidad.Cantidad);
+				
+				switch (comboBoxMonedas.getSelectedIndex()) {
+				case 0:
+					Conversion(cantidad, Dolar);
+					break;
+				case 1:
+					Conversion(cantidad, Euro);
+					break;
+				case 2:
+					Conversion(cantidad, Libra);
+					break;
+				case 3:
+					Conversion(cantidad, Yen);
+					break;
+				case 4:
+					Conversion(cantidad, Won);
+					break;
+					
+				// Otra moneda a Pesos
+				case 5:
+					Conversion(Dolar, cantidad);
+					break;
+				case 6:
+					Conversion(Euro, cantidad);
+					break;
+				case 7:
+					Conversion(Libra, cantidad);
+					break;
+				case 8:
+					Conversion(Yen, cantidad);
+					break;
+				case 9:
+					Conversion(Won, cantidad);
+					break;
+					
+				default:
+					break;
+				}
 				
 			}
+
+			private void Conversion(Double cantidadUno,  Double cantidadPeso) {
+				dispose();
+				Double resultado = (cantidadUno * 1) / cantidadPeso;
+				JOptionPane.showMessageDialog(null, "El resultado de tu conversion es: " + resultado, "Mensaje", 
+						JOptionPane.INFORMATION_MESSAGE);
+				
+				Continuacion continuacion = new Continuacion();
+				continuacion.setLocationRelativeTo(null);
+				continuacion.setVisible(true);
+			}
+			
 		});
 		btnConvertirMoneda.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnConvertirMoneda.setBounds(47, 127, 111, 36);
@@ -76,6 +136,7 @@ public class Monedas extends JFrame {
 				
 				dispose();
 				Principal principal = new Principal();
+				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
 			}
 		});
