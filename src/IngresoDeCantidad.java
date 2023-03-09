@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 public class IngresoDeCantidad extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textDineroAConvertir;
+	public JTextField lblEntradaAConvertir;
 
 	/**
 	 * Launch the application.
@@ -34,6 +34,9 @@ public class IngresoDeCantidad extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	public static String Cantidad = "";
+	
 	public IngresoDeCantidad() {
 		setTitle("Input");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,12 +52,31 @@ public class IngresoDeCantidad extends JFrame {
 		lblINgresoDeCantidad.setBounds(10, 10, 426, 33);
 		contentPane.add(lblINgresoDeCantidad);
 		
-		textDineroAConvertir = new JTextField();
-		textDineroAConvertir.setBounds(64, 45, 332, 33);
-		contentPane.add(textDineroAConvertir);
-		textDineroAConvertir.setColumns(10);
+		lblEntradaAConvertir = new JTextField();
+		lblEntradaAConvertir.setBounds(64, 45, 332, 33);
+		contentPane.add(lblEntradaAConvertir);
+		lblEntradaAConvertir.setColumns(10);
 		
 		JButton btnOkCantidad = new JButton("OK");
+		btnOkCantidad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Cantidad = lblEntradaAConvertir.getText();
+				
+				Monedas monedas = new Monedas();
+				monedas.setVisible(true);
+				dispose();
+				
+				//Instancia del Formulario Monedas
+				//Monedas monedas = new Monedas();
+				//monedas.setCantidad(lblEntradaAConvertir.getText());
+				//monedas.setVisible(true);
+
+				//double cantidadIngresada = Double.parseDouble(textDineroAConvertir.getText());
+				//System.out.println(cantidadIngresada);
+				
+			}
+		});
 		btnOkCantidad.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnOkCantidad.setBounds(94, 88, 92, 35);
 		contentPane.add(btnOkCantidad);

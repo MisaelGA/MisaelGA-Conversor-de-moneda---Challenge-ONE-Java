@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Continuacion extends JFrame {
 
@@ -53,13 +55,26 @@ public class Continuacion extends JFrame {
 		contentPane.add(lblContinuacion);
 		
 		JButton btnContinuacionNo = new JButton("NO");
+		btnContinuacionNo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnContinuacionNo.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnContinuacionNo.setBounds(180, 69, 85, 21);
 		contentPane.add(btnContinuacionNo);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				dispose();
+				Principal principal = new Principal();
+				principal.setVisible(true);
+			}
+		});
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnCancelar.setBounds(301, 69, 113, 21);
+		btnCancelar.setBounds(287, 69, 127, 21);
 		contentPane.add(btnCancelar);
 	}
 

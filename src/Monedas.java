@@ -11,6 +11,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Monedas extends JFrame {
 
@@ -38,7 +39,7 @@ public class Monedas extends JFrame {
 	public Monedas() {
 		setTitle("Monedas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 200);
+		setBounds(100, 100, 450, 207);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -53,13 +54,20 @@ public class Monedas extends JFrame {
 		
 		JComboBox comboBoxMonedas = new JComboBox();
 		comboBoxMonedas.setFont(new Font("Tahoma", Font.BOLD, 17));
-		comboBoxMonedas.setModel(new DefaultComboBoxModel(new String[] {"Peso a Dólar", "Peso a Euros", "Peso a Libras Esterlinas", "Peso a Yen Japonés", "Peso a Won sul-coreano", "Dólar a Peso", "Euros a Peso", "Libras Esterlinas a Peso", "Yen Japonés a Peso", "Won sul-coreano a Peso"}));
-		comboBoxMonedas.setBounds(45, 56, 332, 36);
+		comboBoxMonedas.setModel(new DefaultComboBoxModel(new String[] {"Pesos a Dólar", "Pesos a Euros", "Pesos a Libras Esterlinas", "Pesos a Yen Japonés", "Pesos a Won sul-coreano", "Dólar a Peso", "Euros a Peso", "Libras Esterlinas a Peso", "Yen Japonés a Peso", "Won sul-coreano a Peso"}));
+		comboBoxMonedas.setBounds(47, 81, 332, 36);
 		contentPane.add(comboBoxMonedas);
 		
 		JButton btnConvertirMoneda = new JButton("Convertir");
+		btnConvertirMoneda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+			}
+		});
 		btnConvertirMoneda.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnConvertirMoneda.setBounds(45, 102, 111, 36);
+		btnConvertirMoneda.setBounds(47, 127, 111, 36);
 		contentPane.add(btnConvertirMoneda);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -72,8 +80,23 @@ public class Monedas extends JFrame {
 			}
 		});
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnCancelar.setBounds(199, 102, 111, 36);
+		btnCancelar.setBounds(201, 127, 111, 36);
 		contentPane.add(btnCancelar);
+		
+		JLabel lblDineroAConvertir = new JLabel("00.00");
+		lblDineroAConvertir.setLabelFor(lblDineroAConvertir);
+		lblDineroAConvertir.setForeground(Color.BLUE);
+		lblDineroAConvertir.setBackground(Color.WHITE);
+		lblDineroAConvertir.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDineroAConvertir.setBounds(20, 44, 155, 25);
+		contentPane.add(lblDineroAConvertir);
+		
+		IngresoDeCantidad ingresoDeCantidad = new IngresoDeCantidad();
+		lblDineroAConvertir.setText(ingresoDeCantidad.Cantidad);
+		
 	}
-
+	
+	
+	
 }
+
