@@ -89,6 +89,7 @@ public class IngresoDeCantidad extends JFrame {
 				
 				dispose();
 				Principal principal = new Principal();
+				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
 			}
 		});

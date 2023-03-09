@@ -36,6 +36,9 @@ public class IngresoDeTemperatura extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	public static String Temperatura = "";
+	
 	public IngresoDeTemperatura() {
 		setTitle("Input");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,6 +61,17 @@ public class IngresoDeTemperatura extends JFrame {
 		contentPane.add(textTemperaturaAConvertir);
 		
 		JButton btnOkTemperatura = new JButton("OK");
+		btnOkTemperatura.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Temperatura = textTemperaturaAConvertir.getText();
+				
+				Temperaturas temperaturas = new Temperaturas();
+				temperaturas.setLocationRelativeTo(null);
+				temperaturas.setVisible(true);
+				dispose();
+			}
+		});
 		btnOkTemperatura.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnOkTemperatura.setBounds(82, 88, 92, 35);
 		contentPane.add(btnOkTemperatura);

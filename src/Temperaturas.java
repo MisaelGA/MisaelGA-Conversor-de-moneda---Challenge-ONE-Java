@@ -11,6 +11,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Temperaturas extends JFrame {
 
@@ -38,7 +39,7 @@ public class Temperaturas extends JFrame {
 	 */
 	public Temperaturas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 210);
+		setBounds(100, 100, 450, 265);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -54,12 +55,12 @@ public class Temperaturas extends JFrame {
 		JComboBox comboBoxMonedas = new JComboBox();
 		comboBoxMonedas.setModel(new DefaultComboBoxModel(new String[] {"ºF a ºC", "K a ºC", "ºC a K", "ºF a K", "K a ºF"}));
 		comboBoxMonedas.setFont(new Font("Tahoma", Font.BOLD, 17));
-		comboBoxMonedas.setBounds(39, 66, 332, 36);
+		comboBoxMonedas.setBounds(39, 112, 332, 36);
 		contentPane.add(comboBoxMonedas);
 		
 		JButton btnConvertirTemperatuta = new JButton("Convertir");
 		btnConvertirTemperatuta.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnConvertirTemperatuta.setBounds(39, 112, 111, 36);
+		btnConvertirTemperatuta.setBounds(39, 158, 111, 36);
 		contentPane.add(btnConvertirTemperatuta);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -68,12 +69,21 @@ public class Temperaturas extends JFrame {
 				
 				dispose();
 				Principal principal = new Principal();
+				principal.setLocationRelativeTo(null);
 				principal.setVisible(true);
 			}
 		});
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnCancelar.setBounds(199, 112, 111, 36);
+		btnCancelar.setBounds(199, 158, 111, 36);
 		contentPane.add(btnCancelar);
+		
+		JLabel lblTemperaturaAConvertir = new JLabel("");
+		lblTemperaturaAConvertir.setForeground(Color.BLUE);
+		lblTemperaturaAConvertir.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTemperaturaAConvertir.setBounds(20, 66, 267, 36);
+		contentPane.add(lblTemperaturaAConvertir);
+		
+		IngresoDeTemperatura ingresoDeTemperatura = new IngresoDeTemperatura();
+		lblTemperaturaAConvertir.setText(ingresoDeTemperatura.Temperatura);
 	}
-
 }
