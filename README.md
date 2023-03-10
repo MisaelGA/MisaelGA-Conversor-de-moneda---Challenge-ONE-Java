@@ -1,9 +1,17 @@
-# MisaelGA-Conversor-de-moneda---Challenge-ONE-Java
-MisaelGA/Conversor-de-moneda---Challenge-ONE-Java
+# MisaelGA-Conversor-de-moneda
 
 <h1 align="center"> Conversor de Moneda y Temperatura - Challenege ONE-Java </h1>
 
-<p>Desarrollo de aplicaion de conversion de divisas y temperatura, las tecnologias aplicadas para su desarrollo fueron Java con la extenxion WindowBuilder</p>
+<p>Desarrollo de aplicaion de conversion de divisas y temperatura, las tecnologias aplicadas para su desarrollo fueron Java con la extenxion WindowBuilder.
+Proyecto realizado como Challenge del programa Oracle Next Education</p>
+
+<h2>Instrucciones</h2>
+
+<ol>
+  <li>Clonar repositorio</li>
+  <li>Abrir carpeta src</li>
+  <li>Ejecutar "Principal.java"</li>
+</ol>
 
 <h2> Herramientas utilizadas</h2>
 
