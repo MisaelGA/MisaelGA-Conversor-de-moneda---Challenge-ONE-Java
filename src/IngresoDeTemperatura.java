@@ -4,12 +4,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class IngresoDeTemperatura extends JFrame {
 
@@ -56,6 +60,19 @@ public class IngresoDeTemperatura extends JFrame {
 		contentPane.add(lblINgresoDeTemperatura);
 		
 		textTemperaturaAConvertir = new JTextField();
+		textTemperaturaAConvertir.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+					char entrada = e.getKeyChar();
+				
+					if (Character.isLetter(entrada) || Character.isWhitespace(entrada)) {
+					getToolkit().beep();
+					e.consume();
+					
+					JOptionPane.showMessageDialog(rootPane, "Ingresa solo numeros");
+				}
+			}
+		});
 		textTemperaturaAConvertir.setColumns(10);
 		textTemperaturaAConvertir.setBounds(43, 45, 332, 33);
 		contentPane.add(textTemperaturaAConvertir);

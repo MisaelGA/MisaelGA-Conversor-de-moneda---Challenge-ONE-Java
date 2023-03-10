@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
@@ -52,13 +54,64 @@ public class Temperaturas extends JFrame {
 		lblNewLabel.setBounds(10, 20, 401, 36);
 		contentPane.add(lblNewLabel);
 		
-		JComboBox comboBoxMonedas = new JComboBox();
-		comboBoxMonedas.setModel(new DefaultComboBoxModel(new String[] {"ºF a ºC", "K a ºC", "ºC a K", "ºF a K", "K a ºF"}));
-		comboBoxMonedas.setFont(new Font("Tahoma", Font.BOLD, 17));
-		comboBoxMonedas.setBounds(39, 112, 332, 36);
-		contentPane.add(comboBoxMonedas);
+		JComboBox comboBoxTemperaturas = new JComboBox();
+		comboBoxTemperaturas.setModel(new DefaultComboBoxModel(new String[] {"ºF a ºC", "K a ºC", "ºC a K", "ºF a K", "K a ºF"}));
+		comboBoxTemperaturas.setFont(new Font("Tahoma", Font.BOLD, 17));
+		comboBoxTemperaturas.setBounds(39, 112, 332, 36);
+		contentPane.add(comboBoxTemperaturas);
 		
 		JButton btnConvertirTemperatuta = new JButton("Convertir");
+		btnConvertirTemperatuta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				// ºF a ºC use la fórmula:   ºC = (ºF-32) ÷ 1.8
+				//  K a ºC use la fórmula:   ºC = K – 273.15
+				// ºC a K use la fórmula: K = ºC + 273.15
+				// ºF a K use la fórmula: K = 5/9 (ºF – 32) + 273.15
+				// K a ºF use la fórmula:   ºF = 1.8(K – 273.15) + 32
+				
+				IngresoDeTemperatura ingresoDeTemperatura = new IngresoDeTemperatura();
+				Double temperatura = Double.parseDouble(ingresoDeTemperatura.Temperatura);
+				double resultado = 0;
+				
+				switch (comboBoxTemperaturas.getSelectedIndex()) {
+				case 0:
+					resultado = (temperatura - 32 ) / 1.8;
+					Conversion(resultado);
+					break;
+				case 1:
+					resultado = (temperatura - 273.15) ;
+					Conversion(resultado);
+					break;
+				case 2:
+					resultado = (temperatura + 273.15);
+					Conversion(resultado);
+					break;
+				case 3:
+					resultado = ((5/9) * (temperatura - 32 )) + (273.15);
+					Conversion(resultado);
+					break;
+				case 4:
+					resultado = ((1.8) * (temperatura - 273.15 )) + (32);
+					Conversion(resultado);
+					break;
+
+				default:
+					break;
+				}
+			}
+			
+			private void Conversion(Double entrada) {
+				dispose();
+				JOptionPane.showMessageDialog(null, "El resultado de tu conversion es: " + entrada, (String) comboBoxTemperaturas.getSelectedItem(), 
+						JOptionPane.INFORMATION_MESSAGE);
+				
+				Continuacion continuacion = new Continuacion();
+				continuacion.setLocationRelativeTo(null);
+				continuacion.setVisible(true);
+			}
+			
+		});
 		btnConvertirTemperatuta.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnConvertirTemperatuta.setBounds(39, 158, 111, 36);
 		contentPane.add(btnConvertirTemperatuta);

@@ -72,6 +72,7 @@ public class Monedas extends JFrame {
 				double Won = 0.014;   // 5
 				
 				IngresoDeCantidad ingresoDeCantidad = new IngresoDeCantidad();
+				
 				Double cantidad = Double.parseDouble(ingresoDeCantidad.Cantidad);
 				
 				switch (comboBoxMonedas.getSelectedIndex()) {
@@ -93,19 +94,19 @@ public class Monedas extends JFrame {
 					
 				// Otra moneda a Pesos
 				case 5:
-					Conversion(Dolar, cantidad);
+					ConversionDos(Dolar, cantidad);
 					break;
 				case 6:
-					Conversion(Euro, cantidad);
+					ConversionDos(Euro, cantidad);
 					break;
 				case 7:
-					Conversion(Libra, cantidad);
+					ConversionDos(Libra, cantidad);
 					break;
 				case 8:
-					Conversion(Yen, cantidad);
+					ConversionDos(Yen, cantidad);
 					break;
 				case 9:
-					Conversion(Won, cantidad);
+					ConversionDos(Won, cantidad);
 					break;
 					
 				default:
@@ -117,13 +118,25 @@ public class Monedas extends JFrame {
 			private void Conversion(Double cantidadUno,  Double cantidadPeso) {
 				dispose();
 				Double resultado = (cantidadUno * 1) / cantidadPeso;
-				JOptionPane.showMessageDialog(null, "El resultado de tu conversion es: " + resultado, "Mensaje", 
+				JOptionPane.showMessageDialog(null, "El resultado de tu conversion es: " + resultado, (String) comboBoxMonedas.getSelectedItem(), 
 						JOptionPane.INFORMATION_MESSAGE);
 				
 				Continuacion continuacion = new Continuacion();
 				continuacion.setLocationRelativeTo(null);
 				continuacion.setVisible(true);
 			}
+			
+			private void ConversionDos(Double cantidadUno,  Double cantidadPeso) {
+				dispose();
+				Double resultado = (cantidadUno * cantidadPeso) / 1;
+				JOptionPane.showMessageDialog(null, "El resultado de tu conversion es: " + resultado, (String) comboBoxMonedas.getSelectedItem(), 
+						JOptionPane.INFORMATION_MESSAGE);
+				
+				Continuacion continuacion = new Continuacion();
+				continuacion.setLocationRelativeTo(null);
+				continuacion.setVisible(true);
+			}
+			
 			
 		});
 		btnConvertirMoneda.setFont(new Font("Tahoma", Font.BOLD, 15));
