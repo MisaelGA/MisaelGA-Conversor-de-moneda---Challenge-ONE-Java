@@ -70,34 +70,42 @@ public class Temperaturas extends JFrame {
 				// ºF a K use la fórmula: K = 5/9 (ºF – 32) + 273.15
 				// K a ºF use la fórmula:   ºF = 1.8(K – 273.15) + 32
 				
-				IngresoDeTemperatura ingresoDeTemperatura = new IngresoDeTemperatura();
-				Double temperatura = Double.parseDouble(ingresoDeTemperatura.Temperatura);
-				double resultado = 0;
-				
-				switch (comboBoxTemperaturas.getSelectedIndex()) {
-				case 0:
-					resultado = (temperatura - 32 ) / 1.8;
-					Conversion(resultado);
-					break;
-				case 1:
-					resultado = (temperatura - 273.15) ;
-					Conversion(resultado);
-					break;
-				case 2:
-					resultado = (temperatura + 273.15);
-					Conversion(resultado);
-					break;
-				case 3:
-					resultado = ((5/9) * (temperatura - 32 )) + (273.15);
-					Conversion(resultado);
-					break;
-				case 4:
-					resultado = ((1.8) * (temperatura - 273.15 )) + (32);
-					Conversion(resultado);
-					break;
+				try {
+					IngresoDeTemperatura ingresoDeTemperatura = new IngresoDeTemperatura();
+					Double temperatura = Double.parseDouble(ingresoDeTemperatura.Temperatura);
+					double resultado = 0;
+					
+					switch (comboBoxTemperaturas.getSelectedIndex()) {
+					case 0:
+						resultado = (temperatura - 32 ) / 1.8;
+						Conversion(resultado);
+						break;
+					case 1:
+						resultado = (temperatura - 273.15) ;
+						Conversion(resultado);
+						break;
+					case 2:
+						resultado = (temperatura + 273.15);
+						Conversion(resultado);
+						break;
+					case 3:
+						resultado = ((5/9) * (temperatura - 32 )) + (273.15);
+						Conversion(resultado);
+						break;
+					case 4:
+						resultado = ((1.8) * (temperatura - 273.15 )) + (32);
+						Conversion(resultado);
+						break;
 
-				default:
-					break;
+					default:
+						break;
+					}
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(rootPane, "Verifica tu entrada de datos");
+					dispose();
+					Principal principal = new Principal();
+					principal.setLocationRelativeTo(null);
+					principal.setVisible(true);
 				}
 			}
 			

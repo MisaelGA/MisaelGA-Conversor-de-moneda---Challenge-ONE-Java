@@ -71,47 +71,59 @@ public class Monedas extends JFrame {
 				double Yen = 0.13;    // 4
 				double Won = 0.014;   // 5
 				
-				IngresoDeCantidad ingresoDeCantidad = new IngresoDeCantidad();
 				
-				Double cantidad = Double.parseDouble(ingresoDeCantidad.Cantidad);
 				
-				switch (comboBoxMonedas.getSelectedIndex()) {
-				case 0:
-					Conversion(cantidad, Dolar);
-					break;
-				case 1:
-					Conversion(cantidad, Euro);
-					break;
-				case 2:
-					Conversion(cantidad, Libra);
-					break;
-				case 3:
-					Conversion(cantidad, Yen);
-					break;
-				case 4:
-					Conversion(cantidad, Won);
-					break;
+				try {
+					IngresoDeCantidad ingresoDeCantidad = new IngresoDeCantidad();
 					
-				// Otra moneda a Pesos
-				case 5:
-					ConversionDos(Dolar, cantidad);
-					break;
-				case 6:
-					ConversionDos(Euro, cantidad);
-					break;
-				case 7:
-					ConversionDos(Libra, cantidad);
-					break;
-				case 8:
-					ConversionDos(Yen, cantidad);
-					break;
-				case 9:
-					ConversionDos(Won, cantidad);
-					break;
+					Double cantidad = Double.parseDouble(ingresoDeCantidad.Cantidad);
 					
-				default:
-					break;
+					switch (comboBoxMonedas.getSelectedIndex()) {
+					case 0:
+						Conversion(cantidad, Dolar);
+						break;
+					case 1:
+						Conversion(cantidad, Euro);
+						break;
+					case 2:
+						Conversion(cantidad, Libra);
+						break;
+					case 3:
+						Conversion(cantidad, Yen);
+						break;
+					case 4:
+						Conversion(cantidad, Won);
+						break;
+						
+					// Otra moneda a Pesos
+					case 5:
+						ConversionDos(Dolar, cantidad);
+						break;
+					case 6:
+						ConversionDos(Euro, cantidad);
+						break;
+					case 7:
+						ConversionDos(Libra, cantidad);
+						break;
+					case 8:
+						ConversionDos(Yen, cantidad);
+						break;
+					case 9:
+						ConversionDos(Won, cantidad);
+						break;
+						
+					default:
+						break;
+					}
+				} catch (NumberFormatException e2) {
+					
+					JOptionPane.showMessageDialog(rootPane, "Verifica tu entrada de datos");
+					dispose();
+					Principal principal = new Principal();
+					principal.setLocationRelativeTo(null);
+					principal.setVisible(true);
 				}
+				
 				
 			}
 
