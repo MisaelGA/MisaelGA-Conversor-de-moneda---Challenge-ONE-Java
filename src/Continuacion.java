@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -66,6 +68,8 @@ public class Continuacion extends JFrame {
 		JButton btnContinuacionNo = new JButton("NO");
 		btnContinuacionNo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				JOptionPane.showMessageDialog(null, "El programa a finalizado!");
 				System.exit(0);
 			}
 		});
